@@ -84,6 +84,22 @@ func pullBlack(u *Node) {
 	u.Right.color--
 }
 
+func (rbt *RedBlackTree) findLast(x int) *Node {
+	var closest *Node = nil
+	cur := rbt.root
+	for cur != nil {
+		if x < cur.Val {
+			closest = cur
+			cur = cur.Left
+		} else if x > cur.Val {
+			cur = cur.Right
+		} else {
+			return cur
+		}
+	}
+	return closest
+}
+
 func (rbt *RedBlackTree) findPre(node *Node) *Node {
 	var pre *Node = nil
 	cur := rbt.root

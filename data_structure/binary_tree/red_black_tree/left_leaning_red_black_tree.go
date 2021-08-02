@@ -89,3 +89,11 @@ func (rbt *RedBlackTree) addFixUp(node *Node) {
 		}
 	}
 }
+
+func (rbt *RedBlackTree) Remove(x int) bool {
+	u := rbt.findLast(x)
+	if u == nil || u.Val != x {
+		return false
+	}
+	// TODO: 后期清醒了再实现
+}
